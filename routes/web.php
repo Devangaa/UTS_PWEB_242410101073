@@ -8,5 +8,4 @@ Route::post('/login-proses', [PageController::class, 'prosesLogin'])->name('logi
 
 Route::get('/dashboard/{username}', [PageController::class, 'dashboard'])->name('dashboard');
 Route::get('/profile/{username}', [PageController::class, 'profile'])->name('profile');
-
 Route::get('/pengelolaan/{username}', [PageController::class, 'pengelolaan'])->name('pengelolaan');
