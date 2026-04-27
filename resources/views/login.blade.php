@@ -4,14 +4,7 @@
 <div class="row justify-content-center align-items-center" style="min-height: 70vh;">
     <div class="col-md-5">
         
-        @if(session('error'))
-        <div class="alert alert-danger border-0 shadow-sm mb-3 d-flex align-items-center" role="alert">
-            <i class="fas fa-exclamation-triangle me-3"></i>
-            <div>
-                {{ session('error') }}
-            </div>
-        </div>
-        @endif
+        @include('components.alert') 
 
         <div class="card border-0 shadow-lg" style="border-radius: 15px; overflow: hidden;">
             <div class="bg-primary py-4 text-center text-white">
