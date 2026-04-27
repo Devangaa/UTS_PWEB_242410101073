@@ -14,6 +14,8 @@ Sistem ini adalah sebuah aplikasi berbasis web yang digunakan untuk mengelola st
 
 ### 📸 Dokumentasi Website
 <img width="1000" alt="image" src="public/img/stokdesktop.png" />
+<img width="400" alt="image" src="public/img/stoktablet.png" />
+<img width="200" alt="image" src="public/img/stokmobile.png" />
 
 ---
 
