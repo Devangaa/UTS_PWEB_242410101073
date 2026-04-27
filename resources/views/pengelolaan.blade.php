@@ -37,8 +37,4 @@
         </table>
     </div>
 </div>
-
-<div class="mt-4 text-muted small">
-    <i class="fas fa-info-circle me-1"></i> Data di atas diambil secara dinamis dari PageController menggunakan Array.
-</div>
 @endsection

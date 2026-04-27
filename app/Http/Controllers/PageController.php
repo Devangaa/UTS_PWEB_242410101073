@@ -11,21 +11,24 @@ class PageController extends Controller
         return view('login');
     }
 
-    // Nangkep nama dari form login
     public function prosesLogin(Request $request) {
-       // 1. Ambil input dari form
-        $credentials = $request->only('name', 'password'); // Pakai 'name' karena di DB Laragon biasanya 'name'
+        // ambil input dari view
+        $username = $request->input('username');
+        $password = $request->input('password');
 
-        // 2. Cek ke Database (Otomatis ngecek username & password yg di-bcrypt)
-        if (Auth::attempt(['name' => $request->username, 'password' => $request->password])) {
-            
-            // Jika berhasil, ambil nama user buat dilempar ke route
-            $user = Auth::user()->name;
-            return redirect()->route('dashboard', ['username' => $user]);
+        $users = [
+            ['username' => 'admin', 'password' => 'admin123', 'nama_lengkap' => 'Admin Airu']
+        ];
+
+        // cek PW
+        foreach ($users as $u) {
+            if ($u['username'] == $username && $u['password'] == $password) {
+                return redirect()->route('dashboard', ['username' => $u['nama_lengkap']]);
+            }
         }
 
-        // 3. Jika gagal, balikkan ke login dengan pesan error
-        return back()->with('error', 'Username atau Password salah!');
+        // PW salah
+        return back()->with('error', 'Username atau Password salah!')->withInput();
     }
 
     public function dashboard($username) {
@@ -36,7 +39,6 @@ class PageController extends Controller
         return view('profile', ['username' => $username]);
     }
 
-    // Halaman Pengelolaan dengan DATA ARRAY
     public function pengelolaan($username) {
         $daftarProduk = [
             [
@@ -65,7 +67,6 @@ class PageController extends Controller
             ],
         ];
 
-        // Kirim data username dan daftarProduk ke view
         return view('pengelolaan', [
             'username' => $username,
             'produk' => $daftarProduk

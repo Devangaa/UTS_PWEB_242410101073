@@ -4,7 +4,6 @@
 <div class="row justify-content-center align-items-center" style="min-height: 70vh;">
     <div class="col-md-5">
         
-        {{-- BAGIAN BARU: Menampilkan pesan error jika login gagal --}}
         @if(session('error'))
         <div class="alert alert-danger border-0 shadow-sm mb-3 d-flex align-items-center" role="alert">
             <i class="fas fa-exclamation-triangle me-3"></i>
@@ -22,7 +21,6 @@
             </div>
 
             <div class="card-body p-5">
-                {{-- Alur: Mengirim data ke Route login.proses --}}
                 <form action="{{ route('login.proses') }}" method="POST">
                     @csrf
                     
@@ -30,7 +28,6 @@
                         <label for="username" class="form-label fw-bold text-blue">Username</label>
                         <div class="input-group">
                             <span class="input-group-text bg-light border-0"><i class="fas fa-user text-muted"></i></span>
-                            {{-- Gunakan value="{{ old('username') }}" agar input tidak hilang saat gagal --}}
                             <input type="text" name="username" id="username" class="form-control bg-light border-0 py-2" placeholder="Masukkan username..." value="{{ old('username') }}" required>
                         </div>
                     </div>
@@ -47,10 +44,6 @@
                         LOG IN <i class="fas fa-sign-in-alt ms-2"></i>
                     </button>
                 </form>
-            </div>
-
-            <div class="card-footer bg-white border-0 text-center pb-4">
-                <p class="small text-muted">Aplikasi UTS Pemrograman Web 2026</p>
             </div>
         </div>
     </div>
